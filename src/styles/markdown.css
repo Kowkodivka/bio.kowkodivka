@@ -1,0 +1,81 @@
+.markdown-body {
+  --bgColor-default: var(--color-base-100);
+  --bgColor-muted: var(--color-base-200);
+  --fgColor-default: var(--color-base-content);
+  --fgColor-muted: color-mix(
+    in oklch,
+    var(--color-base-content) 68%,
+    transparent
+  );
+  --fgColor-accent: var(--color-primary);
+  --fgColor-success: var(--color-success);
+  --fgColor-attention: var(--color-warning);
+  --fgColor-danger: var(--color-error);
+  --borderColor-default: var(--color-base-300);
+  --borderColor-muted: var(--color-base-300);
+  --color-canvas-subtle: var(--color-base-200);
+  --bgColor-neutral-muted: var(--color-base-300);
+}
+
+[data-theme="black"] .markdown-body,
+html[data-theme="black"] .markdown-body {
+  --fgColor-muted: color-mix(
+    in oklch,
+    var(--color-base-content) 65%,
+    transparent
+  );
+}
+
+.markdown-body {
+  background-color: var(--bgColor-default) !important;
+  color: var(--fgColor-default);
+}
+
+.markdown-body a {
+  color: var(--fgColor-accent);
+}
+
+.markdown-body pre,
+.markdown-body code,
+.markdown-body kbd {
+  background-color: var(--color-canvas-subtle) !important;
+  border-color: var(--borderColor-default);
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: var(--color-canvas-subtle);
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  border-bottom-color: var(--borderColor-default);
+}
+
+.markdown-body ul {
+  list-style-type: disc !important;
+  padding-left: 2em !important;
+  margin-bottom: 1em !important;
+}
+
+.markdown-body ul ul {
+  list-style-type: circle !important;
+}
+
+.markdown-body ul ul ul {
+  list-style-type: square !important;
+}
+
+.markdown-body ol {
+  list-style-type: decimal !important;
+  padding-left: 2em !important;
+}
+
+.markdown-body li {
+  list-style-position: outside;
+  margin-bottom: 0.25em;
+}
+
+[data-theme="black"] .markdown-body ul,
+html[data-theme="black"] .markdown-body ul {
+  list-style-type: disc !important;
+}
