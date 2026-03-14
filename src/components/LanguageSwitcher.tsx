@@ -18,7 +18,7 @@ const LanguageSwitcher: Component = () => {
 
       <div
         tabIndex="0"
-        class="dropdown-content bg-base-200 text-base-content rounded-box top-px mt-16 w-56 overflow-y-auto border-[length:--border] border-white/5 shadow-2xl outline-[length:--border] outline-black/5"
+        class="dropdown-content bg-base-200 text-base-content rounded-box top-px mt-16 w-56 overflow-y-auto shadow-2xl border-[length:--border] border-white/5 outline-[length:--border] outline-black/5"
       >
         <ul class="menu menu-sm w-full">
           <For each={languages}>

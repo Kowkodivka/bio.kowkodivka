@@ -23,7 +23,7 @@ const Navbar: Component<NavbarProps> = (props) => {
           </A>
         </div>
 
-        <div class="flex xl:gap-2">
+        <div class="flex gap-1 xl:gap-2">
           <For each={props.routes}>
             {(route) => (
               <div class="hidden flex-none items-center sm:inline-block">

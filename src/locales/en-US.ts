@@ -7,10 +7,15 @@ const dict = {
 
   about: {
     name: "Evgeniy Sobolev",
-    pronouns: "he/him",
+    pronouns: "they/them",
     role: "Junior Full-Stack Developer",
-    location: "Novokuznetsk",
+    location: "Novokuznetsk, Russia",
     timezone: "UTC+7",
+  },
+
+  techStack: {
+    title: "Tech Stack",
+    description: "Blah, blah, blah...",
   },
 };
 

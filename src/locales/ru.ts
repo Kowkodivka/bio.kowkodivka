@@ -9,8 +9,13 @@ const dict = {
     name: "Евгений Соболев",
     pronouns: "он/его",
     role: "Junior Full-Stack Developer",
-    location: "Новокузнецк",
+    location: "Новокузнецк, Россия",
     timezone: "МСК+4",
+  },
+
+  techStack: {
+    title: "Тех. стек",
+    description: "Бла, бла, бла...",
   },
 };
 
