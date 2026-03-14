@@ -29,7 +29,8 @@ const Navbar: Component<NavbarProps> = (props) => {
               <div class="hidden flex-none items-center sm:inline-block">
                 <A
                   href={route.path}
-                  class={"btn btn-sm btn-ghost font-normal" + (route.path === location.pathname ? " btn-active" : "")}
+                  class={"btn btn-sm btn-ghost font-normal" +
+                    (route.path === location.pathname ? " btn-active" : "")}
                 >
                   <route.icon class="size-4 opacity-50" />
                   {t(route.key)}

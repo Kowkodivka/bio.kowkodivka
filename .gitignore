@@ -21,3 +21,5 @@ gitignore
 
 .DS_Store
 Thumbs.db
+
+metrics.db

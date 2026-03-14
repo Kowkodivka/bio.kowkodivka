@@ -8,15 +8,19 @@ import Socials from "./routes/Socials";
 import Projects from "./routes/Projects";
 import App from "./App";
 import { I18nProvider } from "./components/I18nProvider";
+import DeviceMetricsTracker from "./components/DeviceMetricsTracker";
 
 const root = document.getElementById("root");
 
 render(() => (
-  <I18nProvider>
-    <Router root={App}>
-      <Route path="/" component={About} />
-      <Route path="/projects" component={Projects} />
-      <Route path="/socials" component={Socials} />
-    </Router>
-  </I18nProvider>
+  <>
+    <DeviceMetricsTracker />
+    <I18nProvider>
+      <Router root={App}>
+        <Route path="/" component={About} />
+        <Route path="/projects" component={Projects} />
+        <Route path="/socials" component={Socials} />
+      </Router>
+    </I18nProvider>
+  </>
 ), root!);
