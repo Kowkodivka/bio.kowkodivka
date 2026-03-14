@@ -2,7 +2,7 @@ const ALLOWED_ORIGIN = "https://bio.kowkodivka.icu";
 
 import { DB } from "https://deno.land/x/sqlite/mod.ts";
 
-const db = new DB("metrics.db");
+const db = new DB("./data/metrics.db");
 db.execute(`
 CREATE TABLE IF NOT EXISTS metrics (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
