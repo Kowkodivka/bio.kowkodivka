@@ -2,15 +2,21 @@
 import "./index.css";
 import { render } from "solid-js/web";
 import "solid-devtools";
-
+import { Route, Router } from "@solidjs/router";
+import About from "./routes/About";
+import Socials from "./routes/Socials";
+import Projects from "./routes/Projects";
 import App from "./App";
+import { I18nProvider } from "./components/I18nProvider";
 
 const root = document.getElementById("root");
 
-if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
-  throw new Error(
-    "Root element not found. Did you forget to add it to your index.html? Or maybe the id attribute got misspelled?",
-  );
-}
-
-render(() => <App />, root!);
+render(() => (
+  <I18nProvider>
+    <Router root={App}>
+      <Route path="/" component={About} />
+      <Route path="/projects" component={Projects} />
+      <Route path="/socials" component={Socials} />
+    </Router>
+  </I18nProvider>
+), root!);

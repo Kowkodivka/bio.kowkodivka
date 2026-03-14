@@ -20,6 +20,8 @@
     "vite-plugin-solid": "^2.11.8"
   },
   "dependencies": {
+    "@solid-primitives/i18n": "^2.2.1",
+    "@solidjs/router": "^0.15.4",
     "dompurify": "^3.3.2",
     "github-markdown-css": "^5.9.0",
     "lucide-solid": "^0.577.0",

@@ -72,13 +72,11 @@
   --noise: 0;
 }
 
-@layer base {
-  html, body {
-    scrollbar-width: none;
-  }
-
-  html::-webkit-scrollbar,
-  body::-webkit-scrollbar {
-    display: none;
-  }
+@font-face {
+  font-family: "Inspiration";
+  src: url("./assets/fonts/Inspiration/Inspiration-Regular.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
