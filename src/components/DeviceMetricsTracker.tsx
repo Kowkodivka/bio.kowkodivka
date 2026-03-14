@@ -3,22 +3,21 @@ import { Component, onMount } from "solid-js";
 async function sendDeviceInfo() {
   const payload = {
     timestamp: new Date().toISOString(),
-    userAgent: navigator.userAgent,
+    user_agent: navigator.userAgent,
     language: navigator.language,
-    languages: navigator.languages,
     screen: {
       width: window.screen.width,
       height: window.screen.height,
-      availWidth: window.screen.availWidth,
-      availHeight: window.screen.availHeight,
-      colorDepth: window.screen.colorDepth,
-      pixelDepth: window.screen.pixelDepth,
+      avail_width: window.screen.availWidth,
+      avail_height: window.screen.availHeight,
+      color_depth: window.screen.colorDepth,
+      pixel_depth: window.screen.pixelDepth,
       orientation: screen.orientation.type,
     },
     window: {
-      innerWidth: window.innerWidth,
-      innerHeight: window.innerHeight,
-      devicePixelRatio: window.devicePixelRatio,
+      inner_width: window.innerWidth,
+      inner_height: window.innerHeight,
+      device_pixel_ratio: window.devicePixelRatio,
     },
   };
 
