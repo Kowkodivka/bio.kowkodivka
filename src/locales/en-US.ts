@@ -1,8 +1,16 @@
 const dict = {
+  copied: "Copied!",
+
   nav: {
-    about: "About",
-    projects: "Projects",
-    socials: "Socials",
+    about: "About Me",
+  },
+
+  about: {
+    name: "Evgeniy Sobolev",
+    pronouns: "he/him",
+    role: "Junior Full-Stack Developer",
+    location: "Novokuznetsk",
+    timezone: "UTC+7",
   },
 };
 

@@ -14,15 +14,17 @@
 
 ## Overview
 
-This is my personal website, presenting details about my work and projects. The frontend is built
-with [Solid.js](https://www.solidjs.com/), while the backend is developed in [Rust](https://www.rust-lang.org/).
+This is my personal website, presenting details about my work and projects. The
+frontend is built with [Solid.js](https://www.solidjs.com/), while the backend
+is developed in [Rust](https://www.rust-lang.org/).
 
 ## Setup
 
 Make sure the following tools are installed:
 
 - [Deno](https://deno.com/) (v1.40+ recommended)
-- [Rust](https://www.rust-lang.org/) (latest stable via [rustup](https://rustup.rs/))
+- [Rust](https://www.rust-lang.org/) (latest stable via
+  [rustup](https://rustup.rs/))
 - [Docker](https://www.docker.com/) (optional)
 
 ### Frontend
@@ -43,7 +45,8 @@ To compile the frontend into static assets:
 deno task build
 ```
 
-The compiled files will be placed in the `dist/` directory and can be served by any static web server.
+The compiled files will be placed in the `dist/` directory and can be served by
+any static web server.
 
 ### Backend
 
