@@ -22,7 +22,7 @@ async function sendDeviceInfo() {
     },
   };
 
-  await fetch("http://127.0.0.1:10900/api/device-metrics", {
+  await fetch("/api/device-metrics", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
