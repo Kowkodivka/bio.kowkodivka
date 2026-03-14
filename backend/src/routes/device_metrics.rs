@@ -1,4 +1,4 @@
-use axum::{Json, extract::State, http::StatusCode, response::IntoResponse};
+use axum::{Json, extract::State, http::{StatusCode, HeaderMap}, response::IntoResponse};
 use sea_orm::{ActiveModelTrait, DatabaseConnection, Set, prelude::DateTimeUtc};
 use serde::{Deserialize, Serialize};
 
@@ -14,10 +14,19 @@ pub struct DeviceMetricsRequest {
 }
 
 pub async fn device_metrics(
+    headers: HeaderMap,
     State(db_conn): State<DatabaseConnection>,
     Json(payload): Json<DeviceMetricsRequest>,
 ) -> Result<impl IntoResponse, AppError> {
+    let ip = headers
+        .get("x-forwarded-for")
+        .and_then(|v| v.to_str().ok())
+        .and_then(|v| v.split(',').next())
+        .map(|v| v.trim().to_string())
+        .unwrap_or_else(|| "unknown".to_string());
+
     let active_model = device_metrics::ActiveModel {
+        ip: Set(ip),
         timestamp: Set(payload.timestamp),
         user_agent: Set(payload.user_agent),
         language: Set(payload.language),
@@ -63,7 +72,7 @@ mod tests {
             },
         };
 
-        let result = device_metrics(State(db_conn), Json(payload)).await;
+        let result = device_metrics(HeaderMap::new(), State(db_conn), Json(payload)).await;
 
         assert!(result.is_ok());
     }
