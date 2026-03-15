@@ -1,7 +1,7 @@
-import { Component } from "solid-js";
-import { socials } from "../routes/About.tsx";
-import TooltipCopy from "./TooltipCopy.tsx";
+import { Component, For } from "solid-js";
 import { useI18n } from "./I18nProvider.tsx";
+import TooltipCopy from "./TooltipCopy.tsx";
+import { socials } from "../routes/About.tsx";
 
 interface SocialsProps {
   socials: typeof socials;
@@ -13,22 +13,33 @@ const Socials: Component<SocialsProps> = (props) => {
   return (
     <For each={props.socials}>
       {(social) => {
+        const icon = <social.icon class="size-4" />;
+
+        if (social.href) {
+          return (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-circle"
+            >
+              {icon}
+            </a>
+          );
+        }
+
         return (
-          <div class="flex items-center gap-2">
-            {social.href
-              ? (
-                <a href={social.href} class="btn btn-circle">
-                  <social.icon class="size-4" />
-                </a>
-              )
-              : (
-                <TooltipCopy text={t("copied")} copyText={social.text}>
-                  <button class="btn btn-circle">
-                    <social.icon class="size-4" />
-                  </button>
-                </TooltipCopy>
-              )}
-          </div>
+          <TooltipCopy
+            text={t("copied")}
+            copyText={social.text}
+          >
+            <button
+              type="button"
+              class="btn btn-circle"
+            >
+              {icon}
+            </button>
+          </TooltipCopy>
         );
       }}
     </For>

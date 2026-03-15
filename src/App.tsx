@@ -17,13 +17,16 @@ const App: Component<RouteSectionProps> = (props) => {
   const { dict, duringTransition } = useI18n();
 
   return (
-    <div class="min-h-svh" style={{ opacity: duringTransition() ? 0.5 : 1 }}>
+    <div
+      class="min-h-svh flex flex-col"
+      style={{ opacity: duringTransition() ? 0.5 : 1 }}
+    >
       <Suspense>
         <Show when={dict()}>
-          <div class="bg-base-100">
+          <div class="bg-base-100 flex flex-col flex-1">
             <Navbar routes={routes} />
 
-            <main class="relative p-6">
+            <main class="relative p-6 flex-1">
               {props.children}
             </main>
 
