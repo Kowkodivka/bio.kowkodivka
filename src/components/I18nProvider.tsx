@@ -29,7 +29,6 @@ const I18nContext = createContext<I18nContextValue>();
 const languages = [
   { locale: "en-US" as const, label: "EN", name: "English" },
   { locale: "ru" as const, label: "RU", name: "Русский" },
-  { locale: "uk" as const, label: "UA", name: "Український" },
 ] as const;
 
 function getInitialLocale(): Locale {
