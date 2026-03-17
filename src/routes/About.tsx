@@ -1,5 +1,3 @@
-// TODO: CLEAN UP THIS SHIT
-
 import { Component, For } from "solid-js";
 import avatar from "../assets/avatar.webp";
 import {

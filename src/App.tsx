@@ -1,5 +1,5 @@
 import { Component, Show, Suspense } from "solid-js";
-import { Book } from "lucide-solid";
+import { BrickWallShield, Info } from "lucide-solid";
 import { RouteSectionProps } from "@solidjs/router";
 import Dock from "./components/Dock";
 import Navbar from "./components/Navbar";
@@ -7,9 +7,15 @@ import { useI18n } from "./components/I18nProvider";
 
 export const routes = [
   {
+    key: "nav.proxy",
+    path: "https://proxy.kowkodivka.icu",
+    icon: BrickWallShield,
+    disabled: true,
+  },
+  {
     key: "nav.about",
     path: "/",
-    icon: Book,
+    icon: Info,
   },
 ] as const;
 

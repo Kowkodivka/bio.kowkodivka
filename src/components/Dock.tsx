@@ -15,9 +15,10 @@ const Dock: Component<DockProps> = (props) => {
         {(route) => (
           <A
             href={route.path}
-            classList={{
-              "dock-active": route.path === location.pathname,
-            }}
+            class={[
+              route.path === location.pathname && "dock-active",
+              route.disabled && "hidden",
+            ].filter(Boolean).join(" ")}
           >
             <route.icon />
           </A>

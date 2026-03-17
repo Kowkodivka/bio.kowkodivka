@@ -2,6 +2,7 @@ const dict = {
   copied: "Скопировано!",
 
   nav: {
+    proxy: "Прокси",
     about: "Обо мне",
   },
 
