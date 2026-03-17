@@ -69,7 +69,7 @@ Or compile in release mode for optimized performance:
 
 ```bash
 cargo build --release
-./target/release/bio.kowkodivka-backend
+./target/release/backend
 ```
 
 <p align="center">
