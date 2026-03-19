@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @plugin "daisyui";
-
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
@@ -36,7 +35,6 @@
   --depth: 0;
   --noise: 0;
 }
-
 @plugin "daisyui/theme" {
   name: "black";
   default: false;
@@ -74,26 +72,9 @@
 
 @font-face {
   font-family: "Inspiration";
-  src: url("./assets/fonts/Inspiration/Inspiration-Regular.ttf")
+  src: url("../assets/fonts/Inspiration/Inspiration-Regular.ttf")
     format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
-}
-
-.tooltip-copy {
-  @apply tooltip;
-}
-
-.tooltip-copy[data-tip]:before,
-.tooltip-copy[data-tip]:after,
-.tooltip-copy > .tooltip-content {
-  opacity: 0;
-  transition: opacity 0.1s;
-}
-
-.tooltip-copy:has(input:checked) > .tooltip-content,
-.tooltip-copy:has(input:checked)[data-tip]:before,
-.tooltip-copy:has(input:checked):after {
-  opacity: 1;
 }
