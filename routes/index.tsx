@@ -1,5 +1,4 @@
 import { define } from "../utils.ts";
-import Socials from "./(_islands)/Socials.tsx";
 import {
   IconType,
   SiDaisyui,
@@ -30,10 +29,8 @@ import {
   Book,
   CakeSlice,
   Clock,
-  Cog,
   Cpu,
   Database,
-  FileCode,
   Globe,
   LucideIcon,
   MapPin,
@@ -41,9 +38,10 @@ import {
   Wrench,
 } from "lucide-preact";
 import avatar from "../assets/avatar.webp";
+import Socials from "./(_islands)/Socials.tsx";
 
 type Tool = {
-  icon: IconType;
+  icon: IconType | LucideIcon;
   name: string;
   href: string;
 };
@@ -67,7 +65,7 @@ export const stacks: Stack[] = [
       },
       { icon: SiPytorch, name: "PyTorch", href: "https://pytorch.org/" },
       { icon: SiOpencv, name: "OpenCV", href: "https://opencv.org/" },
-      { icon: FileCode, name: "OpenSlide", href: "https://openslide.org/" }, // заглушка
+      { icon: Puzzle, name: "OpenSlide", href: "https://openslide.org/" }, // заглушка
       { icon: SiNumpy, name: "NumPy", href: "https://numpy.org/" },
     ],
   },
@@ -91,13 +89,13 @@ export const stacks: Stack[] = [
         href: "https://github.com/teloxide/teloxide/",
       },
       {
-        icon: Cog,
+        icon: Puzzle,
         name: "serenity",
         href: "https://github.com/serenity-rs/serenity/",
       },
       { icon: SiTauri, name: "Tauri", href: "https://v2.tauri.app/" },
       {
-        icon: Database,
+        icon: Puzzle,
         name: "SeaORM",
         href: "https://www.sea-ql.org/SeaORM/",
       },
@@ -145,7 +143,11 @@ export const stacks: Stack[] = [
         name: "WebStorm",
         href: "https://www.jetbrains.com/webstorm/",
       },
-      { icon: Cpu, name: "RustRover", href: "https://www.jetbrains.com/rust/" },
+      {
+        icon: Puzzle,
+        name: "RustRover",
+        href: "https://www.jetbrains.com/rust/",
+      },
       {
         icon: SiPycharm,
         name: "PyCharm",
