@@ -1,11 +1,11 @@
 import { A, useLocation } from "@solidjs/router";
 import { Component, For } from "solid-js";
-import { routes } from "../App";
-import { useI18n } from "./I18nProvider";
-import LanguageSwitcher from "./LanguageSwitcher";
+import { useI18n } from "./I18nProvider.tsx";
+import LanguageSwitcher from "./LanguageSwitcher.tsx";
+import { Route } from "../types.ts";
 
 interface NavbarProps {
-  routes: typeof routes;
+  routes: Route[];
 }
 
 const Navbar: Component<NavbarProps> = (props) => {
@@ -29,12 +29,10 @@ const Navbar: Component<NavbarProps> = (props) => {
               <div class="hidden flex-none items-center sm:inline-block">
                 <A
                   href={route.path}
-                  class={`btn btn-sm btn-ghost font-normal ${
-                    [
-                      route.path === location.pathname && "btn-active",
-                      route.disabled && "hidden",
-                    ].filter(Boolean).join(" ")
-                  }`}
+                  class="btn btn-sm btn-ghost font-normal"
+                  classList={{
+                    "btn-active": route.path === location.pathname,
+                  }}
                 >
                   <route.icon class="size-4 opacity-50" />
                   {t(route.key)}

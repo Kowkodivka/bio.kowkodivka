@@ -1,15 +1,11 @@
 import { Component, For } from "solid-js";
-import { useI18n } from "./I18nProvider.tsx";
-import TooltipCopy from "./TooltipCopy.tsx";
-import { socials } from "../routes/About.tsx";
+import { Social } from "../types.ts";
 
 interface SocialsProps {
-  socials: typeof socials;
+  socials: Social[];
 }
 
 const Socials: Component<SocialsProps> = (props) => {
-  const { t } = useI18n();
-
   return (
     <For each={props.socials}>
       {(social) => {
@@ -29,17 +25,12 @@ const Socials: Component<SocialsProps> = (props) => {
         }
 
         return (
-          <TooltipCopy
-            text={t("copied")}
-            copyText={social.text}
+          <button
+            type="button"
+            class="btn btn-circle"
           >
-            <button
-              type="button"
-              class="btn btn-circle"
-            >
-              {icon}
-            </button>
-          </TooltipCopy>
+            {icon}
+          </button>
         );
       }}
     </For>

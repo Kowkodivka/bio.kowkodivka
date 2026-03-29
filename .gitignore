@@ -5,6 +5,7 @@ target
 .vercel
 .netlify
 .vinxi
+.vite
 app.config.timestamp_*.js
 
 .env

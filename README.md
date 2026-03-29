@@ -14,18 +14,13 @@
 
 ## Overview
 
-This is my personal website, presenting details about my work and projects. The
-frontend is built with [Solid.js](https://www.solidjs.com/), while the backend
-is developed in [Rust](https://www.rust-lang.org/).
+This is my personal website, presenting details about my work and projects.
 
 ## Setup
 
 Make sure the following tools are installed:
 
 - [Deno](https://deno.com/) (v1.40+ recommended)
-- [Rust](https://www.rust-lang.org/) (latest stable via
-  [rustup](https://rustup.rs/))
-- [Docker](https://www.docker.com/) (optional)
 
 ### Frontend
 
@@ -47,30 +42,6 @@ deno task build
 
 The compiled files will be placed in the `dist/` directory and can be served by
 any static web server.
-
-### Backend
-
-The backend is an HTTP API implemented in Rust.
-
-To build the Docker image and run the backend container:
-
-```bash
-docker build -t "bio.kowkodivka-backend" .
-docker run -p 10900:10900 bio.kowkodivka-backend
-```
-
-Alternatively, run directly with Cargo in development mode:
-
-```bash
-cargo run
-```
-
-Or compile in release mode for optimized performance:
-
-```bash
-cargo build --release
-./target/release/backend
-```
 
 <p align="center">
     🤍💙🤍

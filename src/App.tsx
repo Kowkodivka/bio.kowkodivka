@@ -1,23 +1,18 @@
 import { Component, Show, Suspense } from "solid-js";
-import { BrickWallShield, Info } from "lucide-solid";
+import { Info } from "lucide-solid";
 import { RouteSectionProps } from "@solidjs/router";
-import Dock from "./components/Dock";
-import Navbar from "./components/Navbar";
-import { useI18n } from "./components/I18nProvider";
+import Dock from "./components/Dock.tsx";
+import Navbar from "./components/Navbar.tsx";
+import { useI18n } from "./components/I18nProvider.tsx";
+import { Route } from "./types.ts";
 
-export const routes = [
-  {
-    key: "nav.proxy",
-    path: "https://proxy.kowkodivka.icu",
-    icon: BrickWallShield,
-    disabled: true,
-  },
+const routes: Route[] = [
   {
     key: "nav.about",
     path: "/",
     icon: Info,
   },
-] as const;
+];
 
 const App: Component<RouteSectionProps> = (props) => {
   const { dict, duringTransition } = useI18n();

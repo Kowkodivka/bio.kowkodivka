@@ -1,9 +1,9 @@
 import { Component, For } from "solid-js";
 import { A, useLocation } from "@solidjs/router";
-import { routes } from "../App";
+import { Route } from "../types.ts";
 
 interface DockProps {
-  routes: typeof routes;
+  routes: Route[];
 }
 
 const Dock: Component<DockProps> = (props) => {
@@ -15,10 +15,9 @@ const Dock: Component<DockProps> = (props) => {
         {(route) => (
           <A
             href={route.path}
-            class={[
-              route.path === location.pathname && "dock-active",
-              route.disabled && "hidden",
-            ].filter(Boolean).join(" ")}
+            classList={{
+              "dock-active": route.path === location.pathname,
+            }}
           >
             <route.icon />
           </A>

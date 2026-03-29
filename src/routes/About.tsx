@@ -2,6 +2,7 @@ import { Component, For } from "solid-js";
 import avatar from "../assets/avatar.webp";
 import {
   CakeSlice,
+  CircleX,
   Clock,
   Cpu,
   Database,
@@ -12,98 +13,74 @@ import {
 } from "lucide-solid";
 import { useI18n } from "../components/I18nProvider.tsx";
 import Socials from "../components/Socials.tsx";
-import {
-  SiDaisyui,
-  SiDeno,
-  SiDiscord,
-  SiDocker,
-  SiFastapi,
-  SiGit,
-  SiGithub,
-  SiJavascript,
-  SiLinux,
-  SiNumpy,
-  SiOpencv,
-  SiPycharm,
-  SiPython,
-  SiPytorch,
-  SiReact,
-  SiRust,
-  SiSolid,
-  SiSqlite,
-  SiTailwindcss,
-  SiTauri,
-  SiTelegram,
-  SiTokio,
-  SiTypescript,
-  SiUv,
-  SiVscodium,
-  SiWebstorm,
-  SiX,
-} from "solid-icons/si";
+import { Social } from "../types.ts";
 
-export const socials = [
+export const socials: Social[] = [
   {
-    icon: SiTelegram,
+    icon: CircleX,
     label: "Telegram",
     href: "https://t.me/lesbiansexlover",
   },
   {
-    icon: SiDiscord,
-    label: "Discord",
-    text: "@kowkodivka",
-  },
-  {
-    icon: SiX,
+    icon: CircleX,
     label: "X",
     href: "https://x.com/kowkodivka",
   },
   {
-    icon: SiGithub,
+    icon: CircleX,
     label: "GitHub",
     href: "https://github.com/Kowkodivka",
   },
-] as const;
+];
 
+// TODO: simple icons
 const techStacks = [
   {
-    icon: SiPython,
+    icon: CircleX,
     name: "Python",
     tools: [
-      { icon: SiUv, name: "uv", href: "https://docs.astral.sh/uv" },
+      { icon: CircleX, name: "uv", href: "https://docs.astral.sh/uv" },
       {
-        icon: SiFastapi,
+        icon: CircleX,
         name: "FastAPI",
         href: "https://fastapi.tiangolo.com/",
       },
       {
-        icon: SiPytorch,
+        icon: CircleX,
         name: "PyTorch",
         href: "https://pytorch.org/",
       },
-      { icon: SiOpencv, name: "OpenCV", href: "https://opencv.org/" },
-      { name: "OpenSlide", href: "https://openslide.org/" },
-      { icon: SiNumpy, name: "NumPy", href: "https://numpy.org/" },
+      { icon: CircleX, name: "OpenCV", href: "https://opencv.org/" },
+      { icon: CircleX, name: "OpenSlide", href: "https://openslide.org/" },
+      { icon: CircleX, name: "NumPy", href: "https://numpy.org/" },
     ],
   },
   {
-    icon: SiRust,
+    icon: CircleX,
     name: "Rust",
     tools: [
       {
-        icon: SiTokio,
+        icon: CircleX,
         name: "Tokio",
         href: "https://github.com/tokio-rs/tokio",
       },
       {
-        icon: SiTokio,
+        icon: CircleX,
         name: "Axum",
         href: "https://github.com/tokio-rs/axum/",
       },
-      { name: "teloxide", href: "https://github.com/teloxide/teloxide/" },
-      { name: "serenity", href: "https://github.com/serenity-rs/serenity/" },
-      { icon: SiTauri, name: "Tauri", href: "https://v2.tauri.app/" },
-      { name: "SeaORM", href: "https://www.sea-ql.org/SeaORM/" },
+      {
+        icon: CircleX,
+        name: "teloxide",
+        href: "https://github.com/teloxide/teloxide/",
+      },
+      {
+        icon: CircleX,
+        name: "serenity",
+        href: "https://github.com/serenity-rs/serenity/",
+      },
+      { icon: CircleX, name: "Tauri", href: "https://v2.tauri.app/" },
+      { icon: CircleX, name: "SeaORM", href: "https://www.sea-ql.org/SeaORM/" },
     ],
   },
   {
@@ -111,46 +88,50 @@ const techStacks = [
     name: "Web",
     tools: [
       {
-        icon: SiJavascript,
+        icon: CircleX,
         name: "JavaScript",
         href: "https://www.ecma-international.org/",
       },
       {
-        icon: SiTypescript,
+        icon: CircleX,
         name: "TypeScript",
         href: "https://www.typescriptlang.org/",
       },
-      { icon: SiDeno, name: "Deno", href: "https://deno.com/" },
-      { icon: SiReact, name: "React", href: "https://react.dev/" },
-      { icon: SiSolid, name: "Solid.js", href: "https://www.solidjs.com/" },
+      { icon: CircleX, name: "Deno", href: "https://deno.com/" },
+      { icon: CircleX, name: "React", href: "https://react.dev/" },
+      { icon: CircleX, name: "Solid.js", href: "https://www.solidjs.com/" },
       {
-        icon: SiTailwindcss,
+        icon: CircleX,
         name: "Tailwind CSS",
         href: "https://tailwindcss.com/",
       },
-      { icon: SiDaisyui, name: "daisyUI", href: "https://daisyui.com/" },
+      { icon: CircleX, name: "daisyUI", href: "https://daisyui.com/" },
     ],
   },
   {
     icon: Wrench,
     name: "DevOps & Tools",
     tools: [
-      { icon: SiDocker, name: "Docker", href: "https://www.docker.com/" },
-      { icon: SiGit, name: "Git", href: "https://git-scm.com/" },
+      { icon: CircleX, name: "Docker", href: "https://www.docker.com/" },
+      { icon: CircleX, name: "Git", href: "https://git-scm.com/" },
       {
-        icon: SiLinux,
+        icon: CircleX,
         name: "Linux",
         href: "https://en.wikipedia.org/wiki/Linux",
       },
-      { icon: SiVscodium, name: "VSCodium", href: "https://vscodium.com/" },
+      { icon: CircleX, name: "VSCodium", href: "https://vscodium.com/" },
       {
-        icon: SiWebstorm,
+        icon: CircleX,
         name: "WebStorm",
         href: "https://www.jetbrains.com/webstorm/",
       },
-      { name: "RustRover", href: "https://www.jetbrains.com/rust/" },
       {
-        icon: SiPycharm,
+        icon: CircleX,
+        name: "RustRover",
+        href: "https://www.jetbrains.com/rust/",
+      },
+      {
+        icon: CircleX,
         name: "PyCharm",
         href: "https://www.jetbrains.com/pycharm/",
       },
@@ -160,10 +141,10 @@ const techStacks = [
     icon: Database,
     name: "Databases",
     tools: [
-      { icon: SiSqlite, name: "Sqlite", href: "https://www.sqlite.org/" },
+      { icon: CircleX, name: "Sqlite", href: "https://www.sqlite.org/" },
     ],
   },
-] as const;
+];
 
 const About: Component = () => {
   const { t } = useI18n();
@@ -221,7 +202,7 @@ const About: Component = () => {
 
       <div class="flex flex-col gap-2 pb-16 md:w-2/3">
         <div class="collapse collapse-plus bg-base-200 shadow-sm border border-base-content/5">
-          <input type="radio" name="about-accordion" checked="checked" />
+          <input type="radio" name="about-accordion" checked />
 
           <div class="collapse-title flex items-center gap-2">
             <Info class="size-4" />

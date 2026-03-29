@@ -1,5 +1,5 @@
 import * as i18n from "@solid-primitives/i18n";
-import type * as en from "../locales/en-US";
+import type * as en from "@/locales/en-US.ts";
 import {
   type Accessor,
   createContext,

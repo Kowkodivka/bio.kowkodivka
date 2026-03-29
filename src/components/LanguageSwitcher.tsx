@@ -1,9 +1,9 @@
 import { Component, For } from "solid-js";
 import { ChevronDown, Globe } from "lucide-solid";
-import { useI18n } from "./I18nProvider";
+import { useI18n } from "./I18nProvider.tsx";
 
 const LanguageSwitcher: Component = () => {
-  const { t, languages, currentLocale, setLocale } = useI18n();
+  const { languages, currentLocale, setLocale } = useI18n();
 
   return (
     <div class="dropdown dropdown-end">
@@ -25,6 +25,7 @@ const LanguageSwitcher: Component = () => {
             {(language) => (
               <li>
                 <button
+                  type="button"
                   onClick={() => setLocale(language.locale)}
                   classList={{
                     "menu-active": currentLocale() === language.locale,
@@ -33,6 +34,7 @@ const LanguageSwitcher: Component = () => {
                   <span class="pe-4 font-mono font-bold opacity-40">
                     {language.label}
                   </span>
+
                   <span class="font-[sans-serif]">
                     {language.name}
                   </span>
