@@ -6,7 +6,7 @@ import {
   SiX,
 } from "@icons-pack/react-simple-icons";
 
-export type Social = {
+type Social = {
   icon: IconType;
   href?: string;
   text?: string;
@@ -32,7 +32,7 @@ const socials: Social[] = [
 ];
 
 export default function Socials() {
-  return socials.map(({ icon: Icon, href, text }) => {
+  return socials.map(({ icon, href, text }) => {
     if (href) {
       return (
         <a
@@ -41,7 +41,7 @@ export default function Socials() {
           rel="noopener noreferrer"
           className="btn btn-circle"
         >
-          <Icon className="size-4" />
+          {icon}
         </a>
       );
     }
@@ -55,7 +55,7 @@ export default function Socials() {
             await navigator.clipboard.writeText(text!);
           }}
         >
-          <Icon className="size-4" />
+          {icon}
         </button>
       );
     }
