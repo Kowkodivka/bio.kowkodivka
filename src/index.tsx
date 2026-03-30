@@ -4,9 +4,9 @@ import "./index.css";
 import { render } from "solid-js/web";
 import "solid-devtools";
 import { Route, Router } from "@solidjs/router";
-import About from "./routes/About.tsx";
+import About from "./routes/about/index.tsx";
 import App from "./App.tsx";
-import { I18nProvider } from "./components/I18nProvider.tsx";
+import { I18nProvider } from "./providers/I18nProvider.tsx";
 
 const root = document.getElementById("root");
 

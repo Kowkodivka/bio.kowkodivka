@@ -1,9 +1,9 @@
 import { Component, Show, Suspense } from "solid-js";
 import { Info } from "lucide-solid";
 import { RouteSectionProps } from "@solidjs/router";
-import Dock from "./components/Dock.tsx";
-import Navbar from "./components/Navbar.tsx";
-import { useI18n } from "./components/I18nProvider.tsx";
+import Dock from "./components/dock/index.tsx";
+import Navbar from "./components/navbar/index.tsx";
+import { useI18n } from "./providers/I18nProvider.tsx";
 import { Route } from "./types.ts";
 
 const routes: Route[] = [
