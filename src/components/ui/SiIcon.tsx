@@ -1,9 +1,11 @@
 import { SimpleIcon } from "simple-icons";
-import { JSX } from "solid-js";
+import { Component, JSX } from "solid-js";
 
-const SiIcon = (
-  props: { icon: SimpleIcon } & JSX.HTMLAttributes<HTMLDivElement>,
-) => {
+interface SiIconProps extends JSX.HTMLAttributes<HTMLDivElement> {
+  icon: SimpleIcon;
+}
+
+const SiIcon: Component<SiIconProps> = (props) => {
   return <div innerHTML={props.icon.svg} {...props} />;
 };
 
