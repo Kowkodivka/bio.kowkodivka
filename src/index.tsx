@@ -4,7 +4,6 @@ import "solid-devtools";
 
 import { render, Show, Suspense } from "solid-js/web";
 import { Router, Route } from "@solidjs/router";
-
 import AboutPage from "@/pages/AboutPage";
 import { ParentComponent } from "solid-js";
 import { I18nProvider, useI18n } from "@/providers/I18nProvider";

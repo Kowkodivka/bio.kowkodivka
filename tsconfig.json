@@ -21,6 +21,6 @@
 
     // Type Checking & Safety
     "strict": true,
-    "types": ["vite/client", "vite-plugin-solid-svg/types-component-solid"]
+    "types": ["vite/client"]
   }
 }
