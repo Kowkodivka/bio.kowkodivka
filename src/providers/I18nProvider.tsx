@@ -11,17 +11,25 @@ import {
   useTransition,
 } from "solid-js";
 
-type Locale = "en-US" | "ru";
+interface Locale {
+  locale: string;
+  label: string;
+  name: string;
+}
+
 type RawDictionary = typeof en.dict;
 type Dictionary = i18n.Flatten<RawDictionary>;
 
-const locales: Locale[] = ["en-US", "ru"];
+const locales: Locale[] = [
+  { locale: "en-US", label: "EN", name: "English" },
+  { locale: "ru", label: "RU", name: "Русский" },
+];
 
 interface I18nContextValue {
   t: i18n.NullableTranslator<Dictionary>;
   dict: Resource<Dictionary>;
   currentLocale: Accessor<Locale>;
-  setCurrentLocale: (locale: Locale) => Promise<void>;
+  setCurrentLocale: (locale: Locale) => void;
   isTransitioning: Accessor<boolean>;
 }
 
@@ -29,11 +37,16 @@ export const I18nContext = createContext<I18nContextValue>();
 
 const I18nProvider: ParentComponent = (props) => {
   function getInitialLocale(): Locale {
-    const saved = localStorage.getItem("locale") as Locale | null;
-    if (saved && locales.some((l) => l === saved)) return saved;
+    const savedLocale = localStorage.getItem("locale");
+
+    if (savedLocale) {
+      const match = locales.find((l) => l.locale === savedLocale);
+      if (match) return match;
+    }
 
     for (const language of navigator.languages) {
-      if (locales.some((l) => l === language)) return language as Locale;
+      const match = locales.find((l) => l.locale === language);
+      if (match) return match;
     }
 
     return locales[0];
@@ -41,7 +54,7 @@ const I18nProvider: ParentComponent = (props) => {
 
   async function fetchDictionary(locale: Locale): Promise<Dictionary> {
     const { dict }: { dict: RawDictionary } = await import(
-      `@/locales/${locale}.ts`
+      `@/locales/${locale.locale}.ts`
     );
     return i18n.flatten(dict);
   }
@@ -49,17 +62,17 @@ const I18nProvider: ParentComponent = (props) => {
   const [locale, setLocale] = createSignal<Locale>(getInitialLocale());
   const [isTransitioning, startTransition] = useTransition();
 
-  const setCurrentLocale = async (newLocale: Locale) => {
-    if (newLocale === locale()) return;
+  const setCurrentLocale = (newLocale: Locale) => {
+    if (newLocale.locale === locale().locale) return;
 
-    await startTransition(() => {
+    startTransition(() => {
       setLocale(newLocale);
-      localStorage.setItem("locale", newLocale);
     });
+
+    localStorage.setItem("locale", newLocale.locale);
   };
 
   const [dict] = createResource(locale, fetchDictionary);
-
   const t = i18n.translator(dict);
 
   const value: I18nContextValue = {

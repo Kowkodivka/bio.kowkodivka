@@ -12,7 +12,6 @@ const dict = {
     location: "Russia, Novokuznetsk",
     timezone: {
       id: "Asia/Novokuznetsk",
-      name: "Asia/Novokuznetsk",
     },
     birthday: "16.08.20XX",
   },
