@@ -8,19 +8,21 @@ import {
   type ParentComponent,
   Resource,
   useContext,
+  useTransition,
 } from "solid-js";
 
-type Locale = "en-US";
+type Locale = "en-US" | "ru";
 type RawDictionary = typeof en.dict;
 type Dictionary = i18n.Flatten<RawDictionary>;
 
-const locales: Locale[] = ["en-US"];
+const locales: Locale[] = ["en-US", "ru"];
 
 interface I18nContextValue {
   t: i18n.NullableTranslator<Dictionary>;
   dict: Resource<Dictionary>;
   currentLocale: Accessor<Locale>;
-  setCurrentLocale: (locale: Locale) => void;
+  setCurrentLocale: (locale: Locale) => Promise<void>;
+  isTransitioning: Accessor<boolean>;
 }
 
 export const I18nContext = createContext<I18nContextValue>();
@@ -45,10 +47,15 @@ const I18nProvider: ParentComponent = (props) => {
   }
 
   const [locale, setLocale] = createSignal<Locale>(getInitialLocale());
+  const [isTransitioning, startTransition] = useTransition();
 
-  const setCurrentLocale = (locale: Locale) => {
-    setLocale(locale);
-    localStorage.setItem("locale", locale);
+  const setCurrentLocale = async (newLocale: Locale) => {
+    if (newLocale === locale()) return;
+
+    await startTransition(() => {
+      setLocale(newLocale);
+      localStorage.setItem("locale", newLocale);
+    });
   };
 
   const [dict] = createResource(locale, fetchDictionary);
@@ -60,6 +67,7 @@ const I18nProvider: ParentComponent = (props) => {
     dict,
     currentLocale: locale,
     setCurrentLocale,
+    isTransitioning,
   };
 
   return (
