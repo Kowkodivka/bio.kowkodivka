@@ -1,5 +1,5 @@
 import { Social } from "@/types";
-import { siFuraffinity, siGithub, siTelegram, siX } from "simple-icons";
+import { siGithub, siTelegram, siX } from "simple-icons";
 import ProfileDetailsSection from "@/components/about/ProfileDetailsSection";
 import ProfileUserSummary from "@/components/about/ProfileUserSummary";
 import Socials from "@/components/about/Socials";
@@ -17,10 +17,6 @@ const socials: Social[] = [
   {
     icon: siX,
     link: "https://x.com/kowkodivka",
-  },
-  {
-    icon: siFuraffinity,
-    link: "https://www.furaffinity.net/user/kowkodivka/",
   },
 ];
 

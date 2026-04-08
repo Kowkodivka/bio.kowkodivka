@@ -4,7 +4,7 @@ import { SimpleIcon } from "simple-icons";
 type Icon = LucideIcon | SimpleIcon;
 
 interface Social {
-  icon: SimpleIcon;
+  icon: Icon;
   link: string;
 }
 

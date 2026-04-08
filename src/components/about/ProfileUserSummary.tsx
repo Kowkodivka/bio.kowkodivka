@@ -70,19 +70,6 @@ const ProfileUserSummary: Component<ProfileUserSummaryProps> = ({
               </a>
             </div>
           </div>
-
-          <p
-            class="flex absolute bottom-2 left-full -translate-x-6 items-center justify-center bg-base-100 rounded-full size-6 sm:size-10 text-xs sm:text-sm shadow-md border border-base-300 z-10 hover:w-auto hover:px-3 group"
-            onClick={() => {
-              if (window.innerWidth > 640) return;
-              window.alert(t("about.status.details"));
-            }}
-          >
-            <span class="shrink-0">{t("about.status.icon")}</span>
-            <span class="hidden group-hover:block ml-1.5 whitespace-nowrap">
-              {t("about.status.details")}
-            </span>
-          </p>
         </div>
       </div>
 

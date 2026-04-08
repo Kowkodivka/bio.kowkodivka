@@ -1,17 +1,19 @@
 import { Component } from "solid-js";
-import { SimpleIcon } from "simple-icons";
-import { LucideIcon } from "lucide-solid";
 import SiIcon from "./SiIcon";
+import { Icon } from "@/types";
 
-type Icon = LucideIcon | SimpleIcon;
+interface RenderIconProps {
+  icon: Icon;
+  class?: string;
+}
 
-const RenderIcon: Component<{ icon: Icon; class?: string }> = (props) => {
+const RenderIcon: Component<RenderIconProps> = (props) => {
   if ("svg" in props.icon) {
     return <SiIcon icon={props.icon} class={`dark:invert ${props.class}`} />;
   }
 
-  const Lucide = props.icon;
-  return <Lucide class={props.class} />;
+  const LucideIcon = props.icon;
+  return <LucideIcon class={props.class} />;
 };
 
 export default RenderIcon;

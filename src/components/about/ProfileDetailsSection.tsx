@@ -10,10 +10,10 @@ import {
   siFastapi,
   siGit,
   siJavascript,
+  siJetbrains,
   siLinux,
   siNumpy,
   siOpencv,
-  siPycharm,
   siPython,
   siPytorch,
   siReact,
@@ -26,7 +26,6 @@ import {
   siTypescript,
   siUv,
   siVscodium,
-  siWebstorm,
 } from "simple-icons";
 
 const techStacks: TechStack[] = [
@@ -111,18 +110,9 @@ const techStacks: TechStack[] = [
       },
       { icon: siVscodium, name: "VSCodium", link: "https://vscodium.com/" },
       {
-        icon: siWebstorm,
-        name: "WebStorm",
+        icon: siJetbrains,
+        name: "JetBrains IDEs",
         link: "https://www.jetbrains.com/webstorm/",
-      },
-      {
-        name: "RustRover",
-        link: "https://www.jetbrains.com/rust/",
-      },
-      {
-        icon: siPycharm,
-        name: "PyCharm",
-        link: "https://www.jetbrains.com/pycharm/",
       },
     ],
   },
